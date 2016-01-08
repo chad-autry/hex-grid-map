@@ -46,6 +46,7 @@ module.exports.prototype.getDrawnItem = function(item) {
     var lowerGroup = new paper.Group();
     var upperClippedGroup = new paper.Group();
     var lowerClippedGroup = new paper.Group();
+    var p = null;
     
     upperGroup.pivot = new paper.Point(0, 0);
     lowerGroup.pivot = new paper.Point(0, 0);
@@ -115,7 +116,7 @@ module.exports.prototype.getDrawnItem = function(item) {
             
             for(j = 0; j <= 2*Math.PI; j += 0.17) {
                 alpha = (j + Math.PI/2)%(2*Math.PI); //Shift to the back
-                var p = {};
+                p = {};
                 p.x = Math.cos(alpha) * circleRadius;
                 p.z = zHeight;
                 p.y = -Math.sin(alpha) * circleRadius;

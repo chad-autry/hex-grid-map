@@ -83,7 +83,15 @@ module.exports = angular.module( 'hexWidget.demo', [
         $rootScope.$broadcast('addAlert',{type:'info', msg:'Clicked U:'+hexagonalCoordinates.u + ' V:' +hexagonalCoordinates.v});
     };
     $scope.$on('boardInitialized', function() {
-        //Once the board has been initialized, setup the demo scene
+        //Once the board has been initialized with the canvas
+        //set the context and mouse clicked
+        $scope.board.setContexts($scope.contexts);
+        $scope.board.setMouseClicked($scope.globalMouseClicked);
+        
+        //Initialize the board
+        $scope.board.init();
+        
+        //And then, setup the demo scene
         
         //Add a star
         //The rotation is the "nearly isometric" converted to radians.
