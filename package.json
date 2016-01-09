@@ -42,7 +42,6 @@
     "angular-bootstrap": "^0.12.2",
     "angular-ui-router": "^0.2.13",
     "bootstrap": "^3.3.4",
-    "browserify-ng-html2js": "^1.0.0",
     "browserifyable-paper": "git+https://git@github.com/chad-autry/paper.js",
     "cartesian-hexagonal": "0.0.3",
     "collections": "^1.2.1",
@@ -64,6 +63,9 @@
     "npm-watch": "0.0.0",
     "parallelshell": "^1.1.1",
     "watchify": "^3.1.0"
+  },
+  "optionalDependencies": {
+    "browserify-ng-html2js": "^1.0.0"
   },
   "jshintConfig": {
     "node": "true",
