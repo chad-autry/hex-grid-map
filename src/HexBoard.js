@@ -27,6 +27,9 @@ var paper = require('browserifyable-paper');
     //A reference to the board for functions
     var board = this;
 
+    //A reference to the paper object in case we need it later
+    this.paper = paper;
+
     //Setup paper.js
     paper.setup(canvas);
      
@@ -111,6 +114,7 @@ var paper = require('browserifyable-paper');
      */
     this.clear = function() {
         paper.project.clear();
+        paper.project.remove();
     };
 
     /**
