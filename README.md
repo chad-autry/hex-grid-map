@@ -1,6 +1,3 @@
-### Status
-[![Build Status](https://travis-ci.org/chad-autry/hex-grid-map.svg?branch=master)](https://travis-ci.org/chad-autry/hex-grid-map)
-
 ## hex-grid-map
 
 A customizeable html5 hexagonally gridded interactive map.
