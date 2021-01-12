@@ -5,7 +5,7 @@
  * @module DrawnItemContext
  */
  
-var paper = require('browserifyable-paper');
+var paper = require('paper/dist/paper-core.js');
 
 /**
  * A generic context that draws items from the provided dataSource using the provided factory

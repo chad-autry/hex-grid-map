@@ -5,7 +5,7 @@
  * @module CellContext
  */
  
-var paper = require('browserifyable-paper');
+var paper = require('paper/dist/paper-core.js');
 var sortedSet = require('collections/sorted-set');
 /**
 

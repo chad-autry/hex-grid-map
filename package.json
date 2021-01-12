@@ -32,9 +32,9 @@
   },
   "homepage": "https://github.com/chad-autry/hex-grid-map",
   "dependencies": {
-    "browserifyable-paper": "git+https://git@github.com/chad-autry/paper.js",
     "cartesian-hexagonal": "0.0.3",
-    "collections": "^1.2.1"
+    "collections": "^1.2.1",
+    "paper": "^0.12.11"
   },
   "devDependencies": {
     "jsdoc": "^3.3.2",

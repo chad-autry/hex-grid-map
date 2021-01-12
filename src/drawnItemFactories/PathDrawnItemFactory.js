@@ -5,7 +5,7 @@
  * @module PathDrawnItemFactory
  */
  
-var paper = require('browserifyable-paper');
+var paper = require('paper/dist/paper-core.js');
 
 /**
  * A factory for a path item, such as might represent where a ship has been, or various boundaries

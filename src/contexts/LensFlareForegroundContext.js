@@ -5,7 +5,7 @@
  * @module LensFlareForegroundContext
  */
  
-var paper = require('browserifyable-paper');
+var paper = require('paper/dist/paper-core.js');
 
 
 /**

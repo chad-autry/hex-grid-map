@@ -4,7 +4,7 @@
  * The class and module are the same thing, the contructor comment takes precedence.
  * @module ArrowDrawnItemFactory
  */
-var paper = require('browserifyable-paper');
+var paper = require('paper/dist/paper-core.js');
 /**
  * Factory for creating arrow drawn items, such as might represent gravity
  * @constructor

@@ -5,7 +5,7 @@
  * @module FieldOfSquaresDrawnItemFactory
  */
  
-var paper = require('browserifyable-paper');
+var paper = require('paper/dist/paper-core.js');
 
 /**
  * Factory which creates a field of squares with some randomness. Ie not patterned. Intended for asteroids or debris fields.

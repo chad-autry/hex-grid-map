@@ -5,7 +5,7 @@
  * @module RandomStaryBackgroundContext
  */
  
-var paper = require('browserifyable-paper');
+var paper = require('paper/dist/paper-core.js');
  
 /** 
  * The constructor of a context object to generate a random stary background.

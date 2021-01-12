@@ -1,18 +1,19 @@
 import React from "react";
-import HexBoard from "hex-grid-map/src/HexBoard.js";
-import BackgroundContext from "hex-grid-map/src/contexts/RandomStaryBackgroundContext.js";
-import ForegroundContext from "hex-grid-map/src/contexts/LensFlareForegroundContext.js";
-import GridContext from "hex-grid-map/src/contexts/GridContext.js";
-import CellContext from "hex-grid-map/src/contexts/CellContext.js";
-import VectorDrawnItemFactory from "hex-grid-map/src/drawnItemFactories/VectorDrawnItemFactory.js";
-import PathDrawnItemFactory from "hex-grid-map/src/drawnItemFactories/PathDrawnItemFactory.js";
-import ArrowDrawnItemFactory from "hex-grid-map/src/drawnItemFactories/ArrowDrawnItemFactory.js";
-import DelegatingDrawnItemFactory from "hex-grid-map/src/drawnItemFactories/DelegatingDrawnItemFactory.js";
-import DrawnItemContext from "hex-grid-map/src/contexts/DrawnItemContext.js";
-import DataSource from "hex-grid-map/src/dataSources/DataSource.js";
-import CellDrawnItemFactory from "hex-grid-map/src/drawnItemFactories/RegularPolygonDrawnItemFactory";
-import SphereDrawnItemFactory from "hex-grid-map/src/drawnItemFactories/SphereDrawnItemFactory";
-import FieldOfSquaresDrawnItemFactory from "hex-grid-map/src/drawnItemFactories/FieldOfSquaresDrawnItemFactory";
+import HexBoard from "../../../src/HexBoard.js";
+import BackgroundContext from "../../../src/contexts/RandomStaryBackgroundContext.js";
+import ForegroundContext from "../../../src/contexts/LensFlareForegroundContext.js";
+import GridContext from "../../../src/contexts/GridContext.js";
+import CellContext from "../../../src/contexts/CellContext.js";
+import VectorDrawnItemFactory from "../../../src/drawnItemFactories/VectorDrawnItemFactory.js";
+import PathDrawnItemFactory from "../../../src/drawnItemFactories/PathDrawnItemFactory.js";
+import ArrowDrawnItemFactory from "../../../src/drawnItemFactories/ArrowDrawnItemFactory.js";
+import SVGDrawnItemFactory from "../../../src/drawnItemFactories/SVGDrawnItemFactory.js";
+import DelegatingDrawnItemFactory from "../../../src/drawnItemFactories/DelegatingDrawnItemFactory.js";
+import DrawnItemContext from "../../../src/contexts/DrawnItemContext.js";
+import DataSource from "../../../src/dataSources/DataSource.js";
+import CellDrawnItemFactory from "../../../src/drawnItemFactories/RegularPolygonDrawnItemFactory";
+import SphereDrawnItemFactory from "../../../src/drawnItemFactories/SphereDrawnItemFactory";
+import FieldOfSquaresDrawnItemFactory from "../../../src/drawnItemFactories/FieldOfSquaresDrawnItemFactory";
 import HexDefinition from "cartesian-hexagonal";
 import makeDataLink from "data-chains/src/DataLinkMixin";
 import EmittingDataSource from "data-chains/src/EmittingDataSource.js";
@@ -99,10 +100,11 @@ const Map = class Map extends React.Component {
     let simpleDrawnItemFactory = new CellDrawnItemFactory(hexDimensions);
     let sphereDrawnItemFactor = new SphereDrawnItemFactory(hexDimensions);
     let arrowDrawnItemFactory = new ArrowDrawnItemFactory(hexDimensions);
+    let svgDrawnItemFactory = new SVGDrawnItemFactory(hexDimensions);
     
     //For Asteroids we use brown grey, brownish grey, greyish brown, grey brown. For debris would probablly go more blue-grey
     let asteroidFieldDrawnItemFactory = new FieldOfSquaresDrawnItemFactory(hexDimensions, 9, 20, ["#8d8468", "#86775f", "#7a6a4f", "#7f7053"]);
-    let cellDrawnItemFactoryMap = {simple: simpleDrawnItemFactory, sphere: sphereDrawnItemFactor, arrow: arrowDrawnItemFactory, asteroids: asteroidFieldDrawnItemFactory};
+    let cellDrawnItemFactoryMap = {simple: simpleDrawnItemFactory, sphere: sphereDrawnItemFactor, arrow: arrowDrawnItemFactory, asteroids: asteroidFieldDrawnItemFactory, svg: svgDrawnItemFactory};
     let cellDrawnItemFactory = new DelegatingDrawnItemFactory(cellDrawnItemFactoryMap);
     let cellContext = new CellContext(cellDataSource, cellDrawnItemFactory, 5, hexDimensions);
     
@@ -193,13 +195,21 @@ const Map = class Map extends React.Component {
         cellDataSource.addItems([{type:'simple', radius: 30, sides: 3, color: 'green', u:1, v:0}, {type:'simple', radius: 30, sides: 3, color: 'red', u:2, v:9}]);
         
         //A small asteroid field. Double asteroids in the middle
-        var onClickAsteroids = function() {
+        var onClickAsteroids = () =>  {
           this.props.addAlert({type:'success', text:"Asteroids"});
         };
         cellDataSource.addItems([{type:'asteroids', u:-1, v:10, onClick:onClickAsteroids}, {type:'asteroids', u:-2, v:10, onClick:onClickAsteroids},{type:'asteroids', u:-3, v:10, onClick:onClickAsteroids}]);
         cellDataSource.addItems([{type:'asteroids', u:-3, v:11, onClick:onClickAsteroids}, {type:'asteroids', u:-2, v:11, onClick:onClickAsteroids},{type:'asteroids', u:-2, v:10, onClick:onClickAsteroids}]);
         cellDataSource.addItems([{type:'asteroids', u:-1, v:9, onClick:onClickAsteroids}, {type:'asteroids', u:-2, v:9, onClick:onClickAsteroids}]);
         
+//A svg rocket
+var onClickSVG = () => {
+  this.props.addAlert({type:'success', text:"Now with SVG Support!"});
+};
+let rocketSVG = `<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 640 512"><!-- Font Awesome Pro 5.15.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d="M592.604 208.244C559.735 192.836 515.777 184 472 184H186.327c-4.952-6.555-10.585-11.978-16.72-16H376C229.157 137.747 219.403 32 96.003 32H96v128H80V32c-26.51 0-48 28.654-48 64v64c-23.197 0-32 10.032-32 24v40c0 13.983 8.819 24 32 24v16c-23.197 0-32 10.032-32 24v40c0 13.983 8.819 24 32 24v64c0 35.346 21.49 64 48 64V352h16v128h.003c123.4 0 133.154-105.747 279.997-136H169.606c6.135-4.022 11.768-9.445 16.72-16H472c43.777 0 87.735-8.836 120.604-24.244C622.282 289.845 640 271.992 640 256s-17.718-33.845-47.396-47.756zM488 296a8 8 0 0 1-8-8v-64a8 8 0 0 1 8-8c31.909 0 31.942 80 0 80z"/></svg>`;
+cellDataSource.addItems([{type:'svg', scale: .5, svg: rocketSVG, u:3, v:3, rotation: -60, onClick:onClickSVG}]);
+
+
         //A blue 'space station'
         var onClickStation = () => {
           this.props.addAlert({type:'success', text:"Do you believe I'm a space station? Use your imagination"});

@@ -5,7 +5,7 @@
  * @module SphereDrawnItemFactory
  */
 
-var paper = require('browserifyable-paper');
+var paper = require('paper/dist/paper-core.js');
 /**
  * A factory to create the paper.js item for Sphere
  * @constructor

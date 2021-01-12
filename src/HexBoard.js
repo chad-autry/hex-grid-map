@@ -5,7 +5,7 @@
  * @module hexagonal-map
  */
  
-var paper = require('browserifyable-paper');
+var paper = require('paper/dist/paper-core.js');
 /*
  * Defines an isometric hexagonal board for web games
  */

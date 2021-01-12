@@ -4,7 +4,7 @@
  * The class and module are the same thing, the contructor comment takes precedence.
  * @module GridContext
  */
-var paper = require('browserifyable-paper');
+var paper = require('paper/dist/paper-core.js');
 
 /**
  * This is the context object for creating and managing the grid layer of a board

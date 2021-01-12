@@ -5,7 +5,7 @@
  * @module RegularPolygonDrawnItemFactory
  */
  
-var paper = require('browserifyable-paper');
+var paper = require('paper/dist/paper-core.js');
 
 /**
  * Factory which delegates to the paper.js RegularPoloygon constructor
