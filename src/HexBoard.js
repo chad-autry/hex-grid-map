@@ -182,8 +182,8 @@ var paper = require('paper/dist/paper-core.js');
       */
      this.centerOnCell = function(u, v) {
          var pixelCoordinates = board.hexDimensions.getPixelCoordinates(u, v);
-         board.dx = Math.floor(pixelCoordinates.x + board.viewWidth/2);
-         board.dy = Math.floor(pixelCoordinates.y + board.viewHeight/2);
+         board.dx = Math.floor(board.viewWidth/2 - pixelCoordinates.x );
+         board.dy = Math.floor(board.viewHeight/2 - pixelCoordinates.y);
          this.updatePostion();
 
          paper.view.update();
