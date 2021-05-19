@@ -37,10 +37,24 @@ module.exports.prototype.getDrawnItem = function(item) {
  drawnItem.position = new paper.Point(drawnItem.bounds.width/2, drawnItem.bounds.height/2);
  // color manipulation are delegated to the svg string production
  //TODO cache Symbols for imported SVG
+ drawnItem.rotate(item.rotation);
+
+ 
+ 
  drawnItem.scale(item.scale*this.hexDefinition.hexagon_edge_to_edge_width/drawnItem.bounds.width, 
     item.scale*this.hexDefinition.hexagon_edge_to_edge_width/drawnItem.bounds.height );
- drawnItem.rotate(item.rotation);
+ 
  drawnItem.scale(1, this.hexDefinition.vScale);
  drawnItem.data.item = item;
+ 
+ // Add shadow
+ drawnItem.shadowColor = new paper.Color(0, 0, 0);
+ // Set the shadow blur radius to 12:
+ drawnItem.shadowBlur = 10;
+ // Offset the shadow by { x: 5, y: 5 }
+ drawnItem.shadowOffset = new paper.Point(0, 5);
+
+ 
+
  return drawnItem;
 };

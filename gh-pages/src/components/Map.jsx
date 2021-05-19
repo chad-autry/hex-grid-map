@@ -206,15 +206,19 @@ const Map = class Map extends React.Component {
 var onClickSVG = () => {
   this.props.addAlert({type:'success', text:"Now with SVG Support!"});
 };
-let rocketSVG = `<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 640 512"><!-- Font Awesome Pro 5.15.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d="M592.604 208.244C559.735 192.836 515.777 184 472 184H186.327c-4.952-6.555-10.585-11.978-16.72-16H376C229.157 137.747 219.403 32 96.003 32H96v128H80V32c-26.51 0-48 28.654-48 64v64c-23.197 0-32 10.032-32 24v40c0 13.983 8.819 24 32 24v16c-23.197 0-32 10.032-32 24v40c0 13.983 8.819 24 32 24v64c0 35.346 21.49 64 48 64V352h16v128h.003c123.4 0 133.154-105.747 279.997-136H169.606c6.135-4.022 11.768-9.445 16.72-16H472c43.777 0 87.735-8.836 120.604-24.244C622.282 289.845 640 271.992 640 256s-17.718-33.845-47.396-47.756zM488 296a8 8 0 0 1-8-8v-64a8 8 0 0 1 8-8c31.909 0 31.942 80 0 80z"/></svg>`;
-cellDataSource.addItems([{type:'svg', scale: .5, svg: rocketSVG, u:3, v:3, rotation: -60, onClick:onClickSVG}]);
-
+cellDataSource.addItems([{type:'simple', radius: 50, sides: 12, color: 'blue', u:3, v:3, onClick:onClickStation}]);
+let rocketSVG = `<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="-2880 -2304 6400 5120"><!-- Font Awesome Pro 5.15.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d="M592.604 208.244C559.735 192.836 515.777 184 472 184H186.327c-4.952-6.555-10.585-11.978-16.72-16H376C229.157 137.747 219.403 32 96.003 32H96v128H80V32c-26.51 0-48 28.654-48 64v64c-23.197 0-32 10.032-32 24v40c0 13.983 8.819 24 32 24v16c-23.197 0-32 10.032-32 24v40c0 13.983 8.819 24 32 24v64c0 35.346 21.49 64 48 64V352h16v128h.003c123.4 0 133.154-105.747 279.997-136H169.606c6.135-4.022 11.768-9.445 16.72-16H472c43.777 0 87.735-8.836 120.604-24.244C622.282 289.845 640 271.992 640 256s-17.718-33.845-47.396-47.756zM488 296a8 8 0 0 1-8-8v-64a8 8 0 0 1 8-8c31.909 0 31.942 80 0 80z"/></svg>`;
+cellDataSource.addItems([{type:'svg', scale: 10, svg: rocketSVG, u:3, v:3, rotation: -90, onClick:onClickSVG}]);
+cellDataSource.addItems([{type:'svg', scale: 5, svg: rocketSVG, u:3, v:3, rotation: -90, onClick:onClickSVG}]);
+cellDataSource.addItems([{type:'svg', scale: 5, svg: rocketSVG, u:3, v:3, rotation: -90, onClick:onClickSVG}]);
+cellDataSource.addItems([{type:'svg', scale: 5, svg: rocketSVG, u:3, v:3, rotation: -90, onClick:onClickSVG}]);
 
         //A blue 'space station'
         var onClickStation = () => {
           this.props.addAlert({type:'success', text:"Do you believe I'm a space station? Use your imagination"});
         };
         cellDataSource.addItems([{type:'simple', radius: 30, sides: 5, color: 'blue', u:6, v:5, onClick:onClickStation}]);
+        
         
         
         //Dave
