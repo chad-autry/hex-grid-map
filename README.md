@@ -20,4 +20,4 @@ The [hexagonal-map](http://chad-autry.github.io/hex-grid-map/#/jsdoc/module-hexa
 
 ## Demo
 
-Check out the [Demo](http://chad-autry.github.io/hex-grid-map/#/demo). And then take a look at the [source of the demo](https://github.com/chad-autry/hex-grid-map/blob/master/gh-pages/src/app/demo/demo.js) to see how everything was instantiated.
+Check out the [Demo](http://chad-autry.github.io/hex-grid-map/#/demo). And then take a look at the [source of the demo](https://github.com/chad-autry/hex-grid-map/tree/master/gh-pages/src) to see how everything was instantiated.
